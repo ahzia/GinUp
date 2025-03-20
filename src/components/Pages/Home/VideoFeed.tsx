@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { initiatives as initiativesData } from "../../../../lib/initiatives"; // your initiatives data file
 import VideoCard from "./VideoCard";
 import ScoreBoard from "./ScoreBoard";
 import AIChat from "./AIChat";
+import CompanyDetailsModal from "./CompanyDetailsModal";
 
 const GinUpVideoFeed = () => {
-  // Transform initiatives data to add interactive fields (liked, saved)
+  // State for video initiatives
   const [videos, setVideos] = useState<any[]>([]);
   const [videosLoaded, setVideosLoaded] = useState(false);
   const [ginxToken, setGinxToken] = useState(2000);
   const [totalStars, setTotalStars] = useState(10000);
   const [aiChatOpen, setAiChatOpen] = useState(false);
   const [aiChatVideoId, setAiChatVideoId] = useState<string | null>(null);
+
+  // State for modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedInitiative, setSelectedInitiative] = useState<any>(null);
 
   useEffect(() => {
     // Map initiatives to our video format.
@@ -22,6 +27,9 @@ const GinUpVideoFeed = () => {
       title: initiative.initiative,
       description: initiative.description,
       logo: initiative.logo || null,
+      challenge: initiative.challenge || "",
+      callToAction: initiative.callToAction || [],
+      links: initiative.links || [],
       liked: false,
       saved: false,
     }));
@@ -55,13 +63,19 @@ const GinUpVideoFeed = () => {
     );
   };
 
+  // Callback when the logo is clicked
+  const handleLogoClick = (initiativeData: any) => {
+    setSelectedInitiative(initiativeData);
+    setIsModalOpen(true);
+  };
+
+  // Memoize partitioned video lists to prevent re-computation on each render
+  const videoInitiatives = useMemo(() => videos.filter((v) => v.videoURL), [videos]);
+  const slideshowInitiatives = useMemo(() => videos.filter((v) => !v.videoURL), [videos]);
+
   if (!videosLoaded) {
     return <div className="text-white p-4">Loading...</div>;
   }
-
-  // Partition initiatives: first with video, then without video.
-  const videoInitiatives = videos.filter((v) => v.videoURL);
-  const slideshowInitiatives = videos.filter((v) => !v.videoURL);
 
   return (
     <div className="bg-black h-[calc(100vh-60px)] relative">
@@ -92,6 +106,10 @@ const GinUpVideoFeed = () => {
           logo={`/images/${video.logo}`}
           title={video.title}
           description={video.description}
+          challenge={video.challenge}
+          onLogoClick={handleLogoClick}
+          callToAction={video.callToAction}
+          links={video.links}
         />
       ))}
       {/* Then render initiatives without video (which will show a slideshow) */}
@@ -115,8 +133,20 @@ const GinUpVideoFeed = () => {
           title={video.title}
           description={video.description}
           challenge={video.challenge}
+          onLogoClick={handleLogoClick}
+          callToAction={video.callToAction}
+          links={video.links}
         />
       ))}
+
+      {/* Render modal for company details */}
+      {selectedInitiative && (
+        <CompanyDetailsModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          initiative={selectedInitiative}
+        />
+      )}
     </div>
   );
 };
