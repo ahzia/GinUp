@@ -5,7 +5,7 @@ export const missions = {
       items: [
         {
           missionId: "001",
-          icon: "🎥",
+          icon: "📺", // Updated to better represent watching a video
           name: "Watch Your First Video",
           description:
             "Explore the GinUp video feed and watch your first impact video!",
@@ -16,7 +16,7 @@ export const missions = {
         },
         {
           missionId: "002",
-          icon: "🤝",
+          icon: "👥", // Updated to better represent making new friends
           name: "Add 3 New Friends",
           description: "Connect with 3 new members in the GinUp community.",
           reward: 15,
@@ -28,36 +28,14 @@ export const missions = {
         },
         {
           missionId: "003",
-          icon: "🔍",
-          name: "Explore the Impact Hub",
+          icon: "🤖", // Updated to better represent using an AI assistant
+          name: "Use Genie AI",
           description:
-            "Browse through GinUp and discover ongoing projects and initiatives.",
+            "Ask a question or get help from the AI assistant about a specific project.",
           reward: 10,
           progress: "In Progress",
           deadline: "Today at 11:59 PM",
           status: "active",
-        },
-        {
-          missionId: "004",
-          icon: "📢",
-          name: "Share an Initiative Update",
-          description:
-            "Post your thoughts or update about a project to inspire others.",
-          reward: 25,
-          progress: "Not Started",
-          deadline: "Today at 11:59 PM",
-          status: "active",
-        },
-        {
-          missionId: "005",
-          icon: "💬",
-          name: "Chat with the AI Assistant",
-          description:
-            "Ask a question or get help from the AI assistant in GinUp.",
-          reward: 5,
-          progress: "Completed",
-          deadline: "Today at 11:59 PM",
-          status: "completed",
         },
       ],
     },
@@ -65,8 +43,8 @@ export const missions = {
       title: "Weekly Missions",
       items: [
         {
-          missionId: "006",
-          icon: "🎉",
+          missionId: "004",
+          icon: "🎭", // Updated to better represent participating in events
           name: "Participate in 3 Impact Events",
           description:
             "Engage in at least 3 community events or webinars this week.",
@@ -78,41 +56,18 @@ export const missions = {
           status: "active",
         },
         {
-          missionId: "007",
-          icon: "✍️",
-          name: "Create 2 Impact Initiatives",
-          description: "Share 2 new initiative ideas or projects on GinUp.",
-          reward: 40,
-          steps: 2,
-          currentStep: 0,
-          progress: "Not Started",
-          deadline: "This Week",
-          status: "active",
-        },
-        {
-          missionId: "008",
-          icon: "😄",
-          name: "Earn 100 Ginx",
-          description:
-            "Complete missions or engage with content to earn at least 100 Ginx this week.",
-          reward: 75,
-          progress: "In Progress",
-          deadline: "This Week",
-          status: "active",
-        },
-        {
-          missionId: "009",
-          icon: "🏆",
+          missionId: "005",
+          icon: "🎁", // Updated to better represent redeeming a reward
           name: "Redeem a Reward in GinUp Rewards",
-          description: "Use your Ginx to redeem a special reward.",
+          description: "Use your Points to redeem a special reward.",
           reward: 30,
           progress: "Not Started",
           deadline: "This Week",
           status: "active",
         },
         {
-          missionId: "010",
-          icon: "🤝",
+          missionId: "006",
+          icon: "👥", // Matches with the daily mission for adding new friends
           name: "Make 5 New Friends",
           description: "Connect with at least 5 new members on GinUp.",
           reward: 50,
@@ -125,63 +80,60 @@ export const missions = {
       ],
     },
     virginRedMissions: {
-      title: "Weekly Missions",
+      title: "Virgin Red",
       items: [
         {
-          missionId: "006",
-          icon: "🎉",
-          name: "Participate in 3 Impact Events",
-          description:
-            "Engage in at least 3 community events or webinars this week.",
-          reward: 50,
-          steps: 3,
-          currentStep: 2,
-          progress: "In Progress",
-          deadline: "This Week",
-          status: "active",
-        },
-        {
           missionId: "007",
-          icon: "✍️",
-          name: "Create 2 Impact Initiatives",
-          description: "Share 2 new initiative ideas or projects on GinUp.",
-          reward: 40,
-          steps: 2,
-          currentStep: 0,
+          icon: "🌍", // Updated to represent travel insurance
+          name: "Buy Virgin Money's Annual Multi-Trip Travel Insurance",
+          description:
+            "Got a few trips coming up? It’s never been more important to have the right travel insurance in place. Get peace of mind AND earn points at the same time.",
+          reward: 3500,
           progress: "Not Started",
           deadline: "This Week",
           status: "active",
         },
         {
           missionId: "008",
-          icon: "😄",
-          name: "Earn 100 Ginx",
+          icon: "🏕️", // Updated to better represent a luxury safari stay
+          name: "Earn Points per Night at Mahali Mzuri, Kenya",
           description:
-            "Complete missions or engage with content to earn at least 100 Ginx this week.",
-          reward: 75,
-          progress: "In Progress",
-          deadline: "This Week",
-          status: "active",
-        },
-        {
-          missionId: "009",
-          icon: "🏆",
-          name: "Redeem a Reward in GinUp Rewards",
-          description: "Use your Ginx to redeem a special reward.",
-          reward: 30,
+            "Adventure starts here. Nestled in the heart of Kenya’s world-famous Maasai Mara ecosystem, within Olare Motorogi Conservancy, Mahali Mzuri is more than a luxury safari camp. It’s an immersion into nature. A place where every moment feels extraordinary.",
+          reward: 7000,
           progress: "Not Started",
           deadline: "This Week",
           status: "active",
         },
         {
-          missionId: "010",
-          icon: "🤝",
-          name: "Make 5 New Friends",
-          description: "Connect with at least 5 new members on GinUp.",
-          reward: 50,
-          steps: 5,
-          currentStep: 3,
+          missionId: "009",
+          icon: "🚗", // Updated to represent car rental
+          name: "Earn Points with Avis",
+          description:
+            "Hiring a car for a trip is thrilling enough, but now you can earn points on top.",
+          reward: 1000,
           progress: "In Progress",
+          deadline: "This Week",
+          status: "active",
+        },
+        {
+          missionId: "010",
+          icon: "⚡", // Updated to represent energy-related rewards
+          name: "Earn Points with Octopus Energy",
+          description:
+            "Octopus Energy supplies 100% renewable electricity and 5-star customer service to over 6.8 million UK homes. No wonder they've been Which? recommended provider for the last seven years! Switch energy supplier to enjoy greener energy and earn points.",
+          reward: 7400,
+          progress: "Not Started",
+          deadline: "This Week",
+          status: "active",
+        },
+        {
+          missionId: "011",
+          icon: "🏡", // Updated to represent a luxury stay in South Africa
+          name: "Earn Points per Night at Mont Rochelle, South Africa",
+          description:
+            "This is the place to be. A stunning location nestled in the heart of Cape Winelands, surrounded by rolling vineyards and dramatic mountains.",
+          reward: 1500,
+          progress: "Not Started",
           deadline: "This Week",
           status: "active",
         },
