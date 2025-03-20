@@ -1,11 +1,11 @@
 import ahmadPic from "../public/images/Users/Ahmadzia.png";
-import zamirPic from "../public/images/Users/Ahmadzamir.png";
+import zamirPic from "../public/images/Users/Ahmadzamir.jpg";
 
 export const users = [
   {
     id: 1,
     name: "Ahmed Zia",
-    age: 26,
+    age: 27,
     email: "ahmed.zia@gmail.com",
     profilePic: ahmadPic,
     interests: ["Yoga", "Photography", "Cooking"],
@@ -15,7 +15,7 @@ export const users = [
   {
     id: 2,
     name: "Ahmad Zamir",
-    age: 30,
+    age: 25,
     email: "ahmadzamiryousufi@gmail.com",
     profilePic: zamirPic,
     interests: ["Chess", "Football", "Coding"],

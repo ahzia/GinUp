@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Reward } from "@/models/Rewards";
-import { MdEmojiEmotions, MdEvent } from "react-icons/md";
+import { MdEvent } from "react-icons/md";
+import { FaGem } from "react-icons/fa";
 import RewardModal from "./RewardModal";
 
 interface RewardItemProps {
@@ -25,7 +26,7 @@ export default function RewardItem({ reward }: RewardItemProps) {
                         <p className="text-sm">{reward.validity}</p>
                     </div>
                     <div className="mt-auto bg-cardBgLight p-2 rounded-full flex items-center justify-center">
-                        <MdEmojiEmotions className="text-lg text-green-500" />
+                        <FaGem className="text-lg text-blue-500" />
                         <span className="text-sm font-bold text-textPrimary ml-1">{reward.ginxCost} GINX</span>
                     </div>
                 </div>

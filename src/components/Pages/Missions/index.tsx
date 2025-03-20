@@ -29,21 +29,21 @@ export default function MissionsPage() {
       {/* Tabs for Daily, Weekly, and Virgin Red Missions */}
       <div className="flex justify-center mb-6">
         <button
-          className={`px-4 py-2 rounded-t-lg transition duration-200 ${selectedTab === 'daily' ? 'bg-highlight text-mainBg' : 'bg-cardBg text-textSecondary'}`}
+          className={`px-4 py-2 rounded-t-lg transition duration-200 ${selectedTab === 'daily' ? 'bg-highlight text-white' : 'bg-cardBg text-textSecondary'}`}
           onClick={() => handleTabChange('daily')}
         >
           Daily Missions
         </button>
 
         <button
-          className={`px-4 py-2 rounded-t-lg ml-2 transition duration-200 ${selectedTab === 'weekly' ? 'bg-highlight text-mainBg' : 'bg-cardBg text-textSecondary'}`}
+          className={`px-4 py-2 rounded-t-lg ml-2 transition duration-200 ${selectedTab === 'weekly' ? 'bg-highlight text-white' : 'bg-cardBg text-textSecondary'}`}
           onClick={() => handleTabChange('weekly')}
         >
           Weekly Missions
         </button>
 
         <button
-          className={`px-4 py-2 rounded-t-lg ml-2 transition duration-200 ${selectedTab === 'virginRed' ? 'bg-highlight text-mainBg' : 'bg-cardBg text-textSecondary'}`}
+          className={`px-4 py-2 rounded-t-lg ml-2 transition duration-200 ${selectedTab === 'virginRed' ? 'bg-highlight text-white' : 'bg-cardBg text-textSecondary'}`}
           onClick={() => handleTabChange('virginRed')}
         >
           Virgin Red Missions
