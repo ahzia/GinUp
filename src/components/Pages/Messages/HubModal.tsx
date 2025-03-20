@@ -9,9 +9,9 @@ import Modal from "@/components/common/Modal";
 import Members from "@/components/common/Members";
 import { Hub } from "@/models/Hub";
 import { useState } from "react";
-
+import { userData } from "../../../../lib/users";
 import GroupChat from "./Chat";
-
+import { Chat } from "@/models/Hub";
 interface PlanModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -20,6 +20,12 @@ interface PlanModalProps {
 
 const PlanModal: React.FC<PlanModalProps> = ({ isOpen, onClose, hub }) => {
   const [isGroupChatOpen, setGroupChatOpen] = useState(false);
+
+  const isUserJoined = (msgs: Chat[]) => {
+    msgs.map((user) => {
+      return user.userId === userData.id;
+    });
+  }
 
   return (
     <>
@@ -77,28 +83,31 @@ const PlanModal: React.FC<PlanModalProps> = ({ isOpen, onClose, hub }) => {
                     </p>
                   </div>
                 </div>
-
               </div>
             </section>
 
             {/* Join/Leave Buttons */}
-            <div className="bg-cardBg p-4 sticky bottom-0 flex justify-center">
+            <div className="p-2 sticky bottom-0 flex justify-between">
               <button
                 className="bg-highlight text-white px-4 py-2 rounded-lg hover:bg-[#FF5500] transition-all duration-200"
                 onClick={() => setGroupChatOpen(true)}
               >
                 View Chat
               </button>
-              <button
-                className="bg-error text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200 ml-4"
-              >
-                Leave Hub
-              </button>
-              <button
-                className="bg-highlight text-white px-4 py-2 rounded-lg hover:bg-[#FF5500] transition-all duration-200"
-              >
-                Join Hub
-              </button>
+
+              {hub.groupChat && isUserJoined(hub.groupChat) ? (
+                <button
+                  className="bg-error text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200"
+                >
+                  Leave Hub
+                </button>
+              ) : (
+                <button
+                  className="bg-highlight text-white px-4 py-2 rounded-lg hover:bg-[#FF5500] transition-all duration-200"
+                >
+                  Join Hub
+                </button>
+              )}
             </div>
           </div>
         </div>

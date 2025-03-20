@@ -1,15 +1,7 @@
 import Yoga from "../public/images/yoga.jpeg";
 import DigitalNomads from "../public/images/digital-meetup.jpeg";
-import MovieNight from "../public/images/movie-night.jpeg";
-import CookingWorkshop from "../public/images/cooking.png";
-import PhotographyWalk from "../public/images/photography.jpg";
 import NightRun from "../public/images/running.jpg";
-import BoardGames from "../public/images/board-games.jpg";
-import KaraokeNight from "../public/images/karoke.jpg";
-import WeekendBrunch from "../public/images/kitchen.jpg";
-import CyclingAdventure from "../public/images/cycling.jpg";
 import ChinatownTour from "../public/images/ChinatownTour.jpg";
-import HawkerCenterTour from "../public/images/HawkerCenterTour.jpg";
 import LocalCoffeeWorkshop from "../public/images/LocalCoffeeWorkshop.jpg";
 
 export const hubs = {

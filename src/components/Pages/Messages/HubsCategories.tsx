@@ -42,7 +42,6 @@ export default function HubsCategories({ categories }: HubsCategoriesProps) {
                       className="min-w-[300px] max-w-[300px] flex-shrink-0"
                     >
                       <HubCard hub={hub} />
-                      {hub.description}
                     </div>
                   ))}
                 </div>
