@@ -4,8 +4,9 @@ import Image from "next/image";
 import { userData } from "../../../../lib/users";
 import { users } from "../../../../lib/users";
 import Modal from "@/components/common/Modal";
+import { Hub } from "@/models/Hub";
 
-const GroupChat = ({ isOpen, onClose, hub }) => {
+const GroupChat = ({ isOpen, onClose, hub }: { isOpen: boolean; onClose: () => void; hub: Hub }) => {
   const [newMessage, setNewMessage] = useState("");
 
   return (
@@ -18,7 +19,7 @@ const GroupChat = ({ isOpen, onClose, hub }) => {
 
         {/* Chat Messages */}
         <section className="flex-1 overflow-y-auto p-4 space-y-6 custom-scrollbar">
-          {hub?.groupChat.map((msg) => {
+          {hub?.groupChat?.map((msg) => {
             const sender = users.find((user) => user.id === msg.userId);
             const isUser = msg.userId === userData.id;
             return (
