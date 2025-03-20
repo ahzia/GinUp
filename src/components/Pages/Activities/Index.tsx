@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { activities } from '../../../../lib/Activities';
+import { activities } from '../../../../lib/activities';
 import { FaClock, FaSmile } from 'react-icons/fa';
 
 const effortLevelColors: Record<string, string> = {
