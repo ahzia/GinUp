@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import useIsInViewport from "../../../hooks/useIsInViewport";
 import Sidebar from "./SideBar";
 import SlideShowCard from "./SlideShowCard";
+import Image from "next/image";
 
 interface VideoCardProps {
   index: number;
@@ -93,6 +94,20 @@ const VideoCard: React.FC<VideoCardProps> = ({
       ) : (
         <SlideShowCard logo={logo || ""} company={author} title={title} description={description} challenge={challenge} />
       )}
+
+      {/* Logo at the bottom center */}
+      {logo && (
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 p-2 drop-shadow-lg">
+          <Image
+            src={logo}
+            alt={author}
+            className="max-w-[130px] opacity-95"
+            width={100}
+            height={100}
+          />
+        </div>
+      )}
+
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { RewardsData } from "@/models/Rewards";
 export const rewards: RewardsData = {
   rewards: {
     virginRewards: {
-      title: "Virgin Rewards",
+      title: "Virgin Reds",
       items: [
         {
           rewardId: "V001",
