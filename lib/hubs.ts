@@ -17,6 +17,8 @@ export const hubs = {
           created_by: "Virgin Atlantic",
           category: "Sustainable Business",
           image: Yoga, // placeholder image; update as needed
+          participants: 12,
+          max_participants: 20,
           groupChat: [
             {
               id: 1,
@@ -27,7 +29,8 @@ export const hubs = {
             {
               id: 2,
               userId: 2,
-              message: "I’d love to see more discussions on net-zero strategies.",
+              message:
+                "I’d love to see more discussions on net-zero strategies.",
               timestamp: "09:05 AM",
             },
           ],
@@ -40,6 +43,8 @@ export const hubs = {
           created_by: "Virgin Unite",
           category: "Sustainable Business",
           image: DigitalNomads, // placeholder image; update as needed
+          participants: 8,
+          max_participants: 15,
           groupChat: [
             {
               id: 1,
@@ -68,6 +73,8 @@ export const hubs = {
           created_by: "Virgin Media",
           category: "Digital Innovation",
           image: DigitalNomads,
+          participants: 10,
+          max_participants: 15,
           groupChat: [
             {
               id: 1,
@@ -96,6 +103,8 @@ export const hubs = {
           created_by: "Virgin Active",
           category: "Lifestyle & Wellness",
           image: NightRun, // using a running image as a placeholder
+          participants: 15,
+          max_participants: 20,
           groupChat: [
             {
               id: 1,
@@ -124,6 +133,8 @@ export const hubs = {
           created_by: "Virgin Limited Edition",
           category: "Cultural & Local Experiences",
           image: ChinatownTour, // using ChinatownTour image as a placeholder
+          participants: 3,
+          max_participants: 10,
           groupChat: [
             {
               id: 1,
@@ -147,6 +158,8 @@ export const hubs = {
           created_by: "Virgin Experience Days",
           category: "Cultural & Local Experiences",
           image: LocalCoffeeWorkshop, // using a coffee workshop image as a placeholder
+          participants: 7,
+          max_participants: 12,
           groupChat: [
             {
               id: 1,
