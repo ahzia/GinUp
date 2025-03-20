@@ -17,7 +17,7 @@ export const initiatives = {
           "https://corporate.virginatlantic.com/gb/en/business-for-good/planet/fuel/flight100.html",
           "https://corporate.virginatlantic.com/gb/en/business-for-good/planet/fuel.html",
         ],
-        videoFile: "virgin_atlantic_flight100.mp4",
+        videoFile: "example.mp4",
       },
       {
         id: "002",
@@ -32,7 +32,7 @@ export const initiatives = {
           "https://corporate.virginatlantic.com/gb/en/business-for-good/planet/fleet.html",
           "https://www.virgin.com/virgin-unite/latest/flight100-virgin-atlantic-and-rmi-test-new-ways-to-reduce-aviations-climate",
         ],
-        videoFile: "contrail_impact.mp4",
+        videoFile: "example.mp4",
       },
       {
         id: "003",
