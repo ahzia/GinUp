@@ -2,7 +2,7 @@ import { Reward } from "@/models/Rewards";
 import Modal from "@/components/common/Modal";
 import { MdEmojiEmotions, MdEvent } from "react-icons/md";
 import { FaScissors } from "react-icons/fa6";
-// import Image from "next/image";
+import Image from "next/image";
 
 interface RewardModalProps {
     isOpen: boolean;
@@ -20,13 +20,13 @@ export default function RewardModal({ isOpen, onClose, reward }: RewardModalProp
             className="max-w-md !w-4/5 !h-2/4 p-6 rounded-lg shadow-lg text-white relative"
         >
             <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden border-4 border-dashed border-[#FFF]">
-                {/* <Image
-                    src={reward.imageUrl}
+                <Image
+                    src={`/images/${reward.imageUrl}`}
                     alt={reward.name}
                     layout="fill"
                     objectFit="cover"
                     className="rounded-lg"
-                /> */}
+                />
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-60"></div>
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
                     <h2 className="text-xl font-bold text-white drop-shadow-md">
