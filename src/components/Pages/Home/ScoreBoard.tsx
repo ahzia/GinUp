@@ -1,5 +1,7 @@
 import React from "react";
-import { FaStar, FaGem } from "react-icons/fa";
+import { FaGem } from "react-icons/fa";
+import rewardIcon from "../../../../public/images/Virgin-Red-logo.png";
+import Image from "next/image";
 
 interface ScoreBoardProps {
   ginxToken: number;
@@ -12,7 +14,15 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ ginxToken, totalStars }) => {
       {/* Star Icon for Total Stars */}
       <div className="flex items-center">
         <span className="mr-2 text-lg font-bold shadow-md">{totalStars}</span>
-        <FaStar className="text-2xl text-yellow-400 shadow-md" />
+        <div className="flex items-center rounded-full bg-white p-[1px] border-2 border-highlight">
+          <Image
+            src={rewardIcon}
+            alt="Virgin Red Logo"
+            width={30}  // Increased size to make it more visible
+            height={30}  // Increased size to make it more visible
+            className="transform scale-110 shadow-lg contrast-125" // Added scale and shadow to make the logo bolder
+          />
+        </div>
       </div>
 
       {/* Diamond Icon for Ginx Token */}
