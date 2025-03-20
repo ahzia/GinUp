@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 export interface Reward {
   rewardId: string;
   name: string;
@@ -18,7 +16,7 @@ export interface Reward {
     | "merchandise"
     | "service";
   emoji: string;
-  imageUrl: StaticImageData;
+  imageUrl: string;
 }
 
 export interface RewardSection {

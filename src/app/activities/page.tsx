@@ -1,10 +1,11 @@
 import Layout from "@/components/common/Layout";
-import MeetPage from "@/components/Pages/Meet/Index";
+import ActivitiesPage from "@/components/Pages/Activities/Index";
+
 export default function ProfilePage() {
 
   return (
     <Layout>
-      <MeetPage />
+      <ActivitiesPage />
     </Layout>
   );
 }
