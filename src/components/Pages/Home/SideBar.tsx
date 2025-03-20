@@ -1,4 +1,5 @@
-import { FaGem, FaRobot, FaShare, FaBookmark } from "react-icons/fa";
+import { FaRobot, FaShare, FaBookmark } from "react-icons/fa";
+import { MdEmojiEmotions } from "react-icons/md";
 
 export default function Sidebar({
   aiChatOpen,
@@ -29,11 +30,11 @@ export default function Sidebar({
     <div className="absolute right-0 h-screen z-20">
       <ul className="flex flex-col items-center h-full justify-end pb-32 gap-y-10 text-5xl p-2 text-white">
         <li className="flex flex-col items-center justify-center cursor-pointer">
-          <FaGem
-            className={liked ? "text-blue-400" : ""}
+          <MdEmojiEmotions
+            className={liked ? "text-highlight" : ""}
             onClick={() => handleLike(videoId)}
           />
-          <span className="text-xl">Ginx</span>
+          <span className="text-xl">Smile</span>
         </li>
         <li className="flex flex-col items-center justify-center cursor-pointer">
           <FaRobot

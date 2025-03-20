@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGem } from "react-icons/fa";
+import { MdEmojiEmotions } from "react-icons/md";
 import rewardIcon from "../../../../public/images/Virgin-Red-logo.png";
 import Image from "next/image";
 
@@ -28,7 +28,7 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ ginxToken, totalStars }) => {
       {/* Diamond Icon for Ginx Token */}
       <div className="flex items-center">
         <span className="mr-2 text-lg font-bold shadow-md">{ginxToken}</span>
-        <FaGem className="text-2xl text-blue-400 shadow-md" />
+        <MdEmojiEmotions className="text-2xl text-highlight shadow-md" />
       </div>
     </div>
   );

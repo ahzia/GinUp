@@ -1,8 +1,9 @@
 import { Reward } from "@/models/Rewards";
 import Modal from "@/components/common/Modal";
-import { MdEmojiEmotions, MdEvent } from "react-icons/md";
+import { MdEvent } from "react-icons/md";
 import { FaScissors } from "react-icons/fa6";
 import Image from "next/image";
+import rewardIcon from "../../../../public/images/Virgin-Red-logo.png";
 
 interface RewardModalProps {
     isOpen: boolean;
@@ -52,7 +53,9 @@ export default function RewardModal({ isOpen, onClose, reward }: RewardModalProp
                     </div>
                 </div>
                 <div className="flex items-center mt-4">
-                    <MdEmojiEmotions className="text-lg text-green-500" />
+                    <div className="flex items-center rounded-full bg-white p-[1px] border-2 border-highlight">
+                        <Image src={rewardIcon} alt="Virgin Red Logo" width={30} height={30} />
+                    </div>
                     <p className="ml-2 text-lg font-semibold">{reward.ginxCost} POINTS</p>
                 </div>
             </div>
