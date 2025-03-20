@@ -20,12 +20,12 @@ export default function Navbar() {
                     <MdHome />
                 </NavItem>
 
-                <NavItem href="/rewards" isActive={isActive("/rewards")}>
-                    <BiSolidGift />
-                </NavItem>
-
                 <NavItem href="/missions" isActive={isActive("/missions")}>
                     <IoLogoGameControllerB />
+                </NavItem>
+
+                <NavItem href="/rewards" isActive={isActive("/rewards")}>
+                    <BiSolidGift />
                 </NavItem>
 
                 <NavItem href="/meet" isActive={isActive("/meet")}>
