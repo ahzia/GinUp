@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from "react";
-import { MdEmojiEmotions, MdCheckCircle } from "react-icons/md";
+import { MdCheckCircle } from "react-icons/md";
+import { FaGem } from "react-icons/fa"; // Import the diamond icon
 
 export default function MissionItem({ mission }) {
   const [showDescription, setShowDescription] = useState(false);
@@ -9,24 +10,23 @@ export default function MissionItem({ mission }) {
   const progressPercent = mission.steps
     ? (mission.currentStep / mission.steps) * 100
     : 0;
-  
+
   const isMissionCompleted = mission.progress === "Completed";
   const needsProgressBar = mission.steps && !isMissionCompleted;
 
   return (
     <div
-      className={`flex flex-col items-start justify-between p-4 mb-4 border rounded-lg shadow-sm transition duration-200 ${
-        isMissionCompleted ? "border-green-500" : "border-highlight"
-      } hover:shadow-lg`}
+      className={`flex flex-col items-start justify-between p-4 mb-4 border rounded-lg shadow-sm transition duration-200 ${isMissionCompleted ? "border-green-500" : "border-highlight"
+        } hover:shadow-lg`}
       onClick={() => setShowDescription(!showDescription)}
     >
-      <div className="flex items-start w-full">
+      <div className="flex items-start w-full gap-4">
         {/* Icon */}
         <div className="flex flex-col gap-3 items-start">
           <div className="text-3xl mr-4">{mission.icon}</div>
-          <div className="flex items-center">
+          <div className="flex items-center justify-center gap-1">
             <p className="font-semibold text-highlight">+{mission.reward}</p>
-            <MdEmojiEmotions className={`text-lg font-bold text-highlight`} />
+            <FaGem className={`text-lg font-bold text-blue-400`} />
           </div>
         </div>
 
