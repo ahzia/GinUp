@@ -1,5 +1,5 @@
-import ahmadPic from "../images/Users/Ahmadzia.png";
-import zamirPic from "../images/Users/Ahmadzamir.png";
+import ahmadPic from "../public/images/Users/Ahmadzia.png";
+import zamirPic from "../public/images/Users/Ahmadzamir.png";
 
 export const users = [
   {
