@@ -1,3 +1,5 @@
+import { log } from "console";
+
 export const initiatives = {
     initiatives: [
       {
@@ -17,7 +19,8 @@ export const initiatives = {
           "https://corporate.virginatlantic.com/gb/en/business-for-good/planet/fuel/flight100.html",
           "https://corporate.virginatlantic.com/gb/en/business-for-good/planet/fuel.html",
         ],
-        videoFile: "example.mp4",
+        videoFile: "01_virgin_atlantic.mp4",
+        logo: "01_virgin-atlantic.svg",
       },
       {
         id: "002",
@@ -32,7 +35,7 @@ export const initiatives = {
           "https://corporate.virginatlantic.com/gb/en/business-for-good/planet/fleet.html",
           "https://www.virgin.com/virgin-unite/latest/flight100-virgin-atlantic-and-rmi-test-new-ways-to-reduce-aviations-climate",
         ],
-        videoFile: "example.mp4",
+        logo: "01_virgin-atlantic.svg",     
       },
       {
         id: "003",
@@ -47,7 +50,8 @@ export const initiatives = {
           "Donate to Sea Change For All Fund",
         ],
         links: ["https://www.virginvoyages.com/sustainability"],
-        videoFile: "mangrove_project.mp4",
+        videoFile: "03_virgin_voyages.mp4",
+        logo: "03_Virgin_Voyages.svg",
       },
       {
         id: "004",
@@ -62,7 +66,7 @@ export const initiatives = {
           "https://www.virgin.com/about-virgin/latest/virgin-media-o2-launches-better-connections-plan",
           "https://www.o2recycle.co.uk/",
         ],
-        videoFile: "o2_recycle.mp4",
+        logo: "Virgin_Media_02.svg",
       },
       {
         id: "005",
@@ -77,7 +81,7 @@ export const initiatives = {
           "https://www.virgin.com/about-virgin/latest/virgin-media-o2-launches-better-connections-plan",
           "https://hubbub.org.uk/community-calling",
         ],
-        videoFile: "community_calling.mp4",
+        logo: "Virgin_Media_02.svg",
       },
       {
         id: "006",
@@ -92,7 +96,7 @@ export const initiatives = {
           "https://news.virginmediao2.co.uk/archive/new-pan-industry-eco-rating-scheme-launched-for-mobile-phones/",
           "https://www.o2.co.uk/inspiration/the-drop/eco-rating-for-mobile-phones",
         ],
-        videoFile: "eco_rating.mp4",
+        logo: "Virgin_Media_02.svg",
       },
       {
         id: "007",
@@ -104,7 +108,7 @@ export const initiatives = {
           "Virgin Media O2 offers a range of like-new second hand smartphones and tablets to help reduce your carbon footprint.",
         callToAction: ["Buy a like-new second hand smartphone or tablet"],
         links: ["https://www.o2.co.uk/shop/like-new"],
-        videoFile: "second_hand_phone.mp4",
+        logo: "Virgin_Media_02.svg",
       },
       {
         id: "008",
@@ -123,6 +127,7 @@ export const initiatives = {
           "https://www.virginlimitededition.com/ulusaba/the-reserve/our-commitment/",
           "https://www.packforapurpose.org/destinations/africa/south-africa/ulusaba-private-game-reserve/",
         ],
+        logo: "Virgin_Limited_Edition.svg",
         videoFile: "pride_n_purpose.mp4",
       },
       {
@@ -143,7 +148,9 @@ export const initiatives = {
           "https://www.virginlimitededition.com/mahali-mzuri/the-camp/our-commitment/",
           "https://www.virginlimitededition.com/media/dvvi4c4q/mahali-mzuri-inua-jamii-brochure-oct-24.pdf",
         ],
+        logo: "Virgin_Limited_Edition.svg",
         videoFile: "mahali_mzuri.mp4",
+
       },
       {
         id: "010",
@@ -159,7 +166,7 @@ export const initiatives = {
           "https://www.virgin.com/branson-family/richard-branson-blog/how-the-planetary-guardians-can-help-secure-earths-future",
           "https://unite.virgin.com/our-work/planetary-guardians/index.html?region=gb",
         ],
-        videoFile: "planetary_guardians.mp4",
+        logo: "virgin_unite.svg",
       },
       {
         id: "011",
@@ -175,6 +182,7 @@ export const initiatives = {
           "https://futureoflife.org/open-letter/long-view-leadership-on-existential-threats/",
         ],
         videoFile: "the_elders.mp4",
+        logo: "the_elders.png",
       },
       {
         id: "012",
@@ -191,7 +199,7 @@ export const initiatives = {
           "https://only.one/act/antarctica",
           "https://www.virgin.com/virgin-unite/latest/securing-the-largest-act-of-ocean-protection-in-history",
         ],
-        videoFile: "ocean_unite.mp4",
+        logo: "ocean_unite.png",
       },
       {
         id: "013",
@@ -207,6 +215,7 @@ export const initiatives = {
           "https://www.hotosm.org/updates/mapping-for-el-nino-2023-early-warning-and-anticipatory-action/",
         ],
         videoFile: "hot_mapathon.mp4",
+        logo: "hot.png",
       },
       {
         id: "014",
@@ -221,7 +230,8 @@ export const initiatives = {
           "https://www.projectceti.org/get-involved",
           "https://www.audaciousproject.org/grantees/project-ceti",
         ],
-        videoFile: "project_ceti.mp4",
+        videoFile: "CETI.mp4",
+        logo: "projectceti.svg",
       },
       {
         id: "015",
@@ -242,7 +252,8 @@ export const initiatives = {
           "https://evebransonfoundation.org.uk/pack-for-a-purpose/",
           "https://www.virgin.com/virgin-red",
         ],
-        videoFile: "eve_branson.mp4",
+        videoFile: "015_Eve_Branson_Foundation.mp4",
+        logo: "015_Eve_Branson_Foundation.svg",
       },
       {
         id: "016",
@@ -255,6 +266,7 @@ export const initiatives = {
         callToAction: ["Join the community"],
         links: ["https://unitebvi.com/get-involved/index.html?region=gb"],
         videoFile: "unite_bvi.mp4",
+        logo: "unite_bvi.svg",
       },
     ],
   };

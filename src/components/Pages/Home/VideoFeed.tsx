@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { initiatives as initiativesData } from "../../../../lib/initiatives"; // our initiatives data file
+import { initiatives as initiativesData } from "../../../../lib/initiatives"; // your initiatives data file
 import VideoCard from "./VideoCard";
 import ScoreBoard from "./ScoreBoard";
 import AIChat from "./AIChat";
@@ -18,9 +18,10 @@ const GinUpVideoFeed = () => {
     const transformedVideos = initiativesData.initiatives.map((initiative) => ({
       id: initiative.id,
       author: initiative.company,
-      videoURL: `/videos/${initiative.videoFile}`, // Ensure your video files are in the public/videos folder
+      videoURL: initiative.videoFile ? `/videos/${initiative.videoFile}` : null,
       title: initiative.initiative,
       description: initiative.description,
+      logo: initiative.logo || null,
       liked: false,
       saved: false,
     }));
@@ -33,7 +34,7 @@ const GinUpVideoFeed = () => {
       prevVideos.map((video) => {
         if (video.id === id) {
           const newLikedStatus = !video.liked;
-          // Update tokens and stars (you can adjust the logic as needed)
+          // Update tokens and stars (adjust logic as needed)
           setGinxToken((prev) => prev + (newLikedStatus ? -1 : 1));
           setTotalStars((prev) => prev + (newLikedStatus ? 200 : -200));
           return { ...video, liked: newLikedStatus };
@@ -54,9 +55,16 @@ const GinUpVideoFeed = () => {
     );
   };
 
+  if (!videosLoaded) {
+    return <div className="text-white p-4">Loading...</div>;
+  }
+
+  // Partition initiatives: first with video, then without video.
+  const videoInitiatives = videos.filter((v) => v.videoURL);
+  const slideshowInitiatives = videos.filter((v) => !v.videoURL);
+
   return (
     <div className="bg-black h-[calc(100vh-60px)] relative">
-      {/* AIChat is empty for now */}
       <AIChat
         aiChatOpen={aiChatOpen}
         setAiChatOpen={setAiChatOpen}
@@ -64,30 +72,51 @@ const GinUpVideoFeed = () => {
         videosData={videos}
       />
       <ScoreBoard ginxToken={ginxToken} totalStars={totalStars} />
-      {videosLoaded && videos.length > 0 ? (
-        <>
-          {videos.map((video, index) => (
-            <VideoCard
-              key={video.id}
-              index={index}
-              author={video.author}
-              videoURL={video.videoURL}
-              authorImg={null} // Replace with a company logo or a default image if needed
-              lastVideoIndex={videos.length - 1}
-              handleLike={handleLike}
-              handleSave={handleSave}
-              videoId={video.id}
-              liked={video.liked}
-              saved={video.saved}
-              aiChatOpen={aiChatOpen}
-              setAiChatOpen={setAiChatOpen}
-              setAiChatVideoId={setAiChatVideoId}
-            />
-          ))}
-        </>
-      ) : (
-        <div className="text-white p-4">Loading...</div>
-      )}
+      {/* Render initiatives with video first */}
+      {videoInitiatives.map((video, index) => (
+        <VideoCard
+          key={video.id}
+          index={index}
+          author={video.author}
+          videoURL={video.videoURL}
+          authorImg={null} // Optionally replace with a default image
+          lastVideoIndex={videos.length - 1}
+          handleLike={handleLike}
+          handleSave={handleSave}
+          videoId={video.id}
+          liked={video.liked}
+          saved={video.saved}
+          aiChatOpen={aiChatOpen}
+          setAiChatOpen={setAiChatOpen}
+          setAiChatVideoId={setAiChatVideoId}
+          logo={`/images/${video.logo}`}
+          title={video.title}
+          description={video.description}
+        />
+      ))}
+      {/* Then render initiatives without video (which will show a slideshow) */}
+      {slideshowInitiatives.map((video, index) => (
+        <VideoCard
+          key={video.id}
+          index={videoInitiatives.length + index}
+          author={video.author}
+          videoURL={video.videoURL} // will be null so VideoCard renders a slideshow card
+          authorImg={null}
+          lastVideoIndex={videos.length - 1}
+          handleLike={handleLike}
+          handleSave={handleSave}
+          videoId={video.id}
+          liked={video.liked}
+          saved={video.saved}
+          aiChatOpen={aiChatOpen}
+          setAiChatOpen={setAiChatOpen}
+          setAiChatVideoId={setAiChatVideoId}
+          logo={`/images/${video.logo}`}
+          title={video.title}
+          description={video.description}
+          challenge={video.challenge}
+        />
+      ))}
     </div>
   );
 };
