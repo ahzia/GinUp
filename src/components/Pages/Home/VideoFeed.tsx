@@ -4,6 +4,7 @@ import VideoCard from "./VideoCard";
 import ScoreBoard from "./ScoreBoard";
 import AIChat from "./AIChat";
 import CompanyDetailsModal from "./CompanyDetailsModal";
+import Modal from "../../common/Modal";
 
 const GinUpVideoFeed = () => {
   // State for video initiatives
@@ -79,12 +80,11 @@ const GinUpVideoFeed = () => {
 
   return (
     <div className="bg-black h-[calc(100vh-60px)] relative">
-      <AIChat
-        aiChatOpen={aiChatOpen}
-        setAiChatOpen={setAiChatOpen}
-        aiChatVideoId={aiChatVideoId}
-        videosData={videos}
-      />
+
+      <Modal isOpen={aiChatOpen} onClose={() => setAiChatOpen(false)} className="w-full max-w-2xl h-auto">
+        <AIChat aiChatOpen={aiChatOpen} setAiChatOpen={setAiChatOpen} aiChatVideoId={aiChatVideoId} videosData={videos} />
+      </Modal>
+
       <ScoreBoard ginxToken={ginxToken} totalStars={totalStars} />
       {/* Render initiatives with video first */}
       {videoInitiatives.map((video, index) => (

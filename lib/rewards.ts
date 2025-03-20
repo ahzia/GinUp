@@ -44,16 +44,16 @@ export const rewards: RewardsData = {
       ],
     },
     ginUpExclusives: {
-      title: "GinUp Exclusives",
+      title: "SmileUp Exclusives",
       items: [
         {
           rewardId: "G001",
           name: "Digital Impact Badge",
           description:
-            "Earn a unique digital badge for your contributions and engagements on GinUp.",
+            "Earn a unique digital badge for your contributions and engagements on SmileUp.",
           validity: "Never Expires",
           ginxCost: 100,
-          provider: "GinUp",
+          provider: "SmileUp",
           type: "digital",
           emoji: "🏅",
           imageUrl: "digital_badge.jpg",
