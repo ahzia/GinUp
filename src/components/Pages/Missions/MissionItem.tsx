@@ -1,7 +1,8 @@
 'use client';
 import React, { useState } from "react";
 import { MdCheckCircle } from "react-icons/md";
-import { FaGem } from "react-icons/fa"; // Import the diamond icon
+import rewardIcon from "../../../../public/images/Virgin-Red-logo.png";
+import Image from "next/image";
 
 export default function MissionItem({ mission }) {
   const [showDescription, setShowDescription] = useState(false);
@@ -21,14 +22,22 @@ export default function MissionItem({ mission }) {
       onClick={() => setShowDescription(!showDescription)}
     >
       <div className="flex items-start w-full gap-4">
-        {/* Icon */}
         <div className="flex flex-col gap-3 items-start">
           <div className="text-3xl mr-4">{mission.icon}</div>
           <div className="flex items-center justify-center gap-1">
-            <p className="font-semibold text-highlight">+{mission.reward}</p>
-            <FaGem className={`text-lg font-bold text-blue-400`} />
+            <p className="font-bold text-highlight">+{mission.reward}</p>
+            <div className="flex items-center rounded-full bg-white p-[1px] border-2 border-highlight">
+              <Image
+                src={rewardIcon}
+                alt="Virgin Red Logo"
+                width={20}  // Increased size to make it more visible
+                height={20}  // Increased size to make it more visible
+                className="transform scale-110 shadow-lg contrast-125" // Added scale and shadow to make the logo bolder
+              />
+            </div>
           </div>
         </div>
+
 
         {/* Mission Details */}
         <div className="w-full">

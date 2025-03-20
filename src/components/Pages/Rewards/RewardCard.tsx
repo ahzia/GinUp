@@ -28,7 +28,7 @@ export default function RewardItem({ reward }: RewardItemProps) {
                     </div>
                     <div className="mt-auto bg-cardBgLight p-2 rounded-full flex items-center justify-center">
                         <div className="flex items-center rounded-full bg-white p-[1px] border-2 border-highlight">
-                        <Image src={rewardIcon} alt="Virgin Red Logo" width={30} height={30} />
+                            <Image src={rewardIcon} alt="Virgin Red Logo" width={30} height={30} />
                         </div>
                         <span className="text-sm font-bold text-textPrimary ml-1">{reward.ginxCost} POINTS</span>
                     </div>
