@@ -9,8 +9,8 @@ export interface User {
   ginx: number;
   bio: string;
   friends?: number;
-  initiativesParticipated?: string[]; // initiative IDs
-  initiativesCreated?: string[];      // initiative IDs
+  initiativesParticipated?: number[]; // initiative IDs
+  initiativesCreated?: number[];      // initiative IDs
   recentActivities?: {
     activity: string;
     time: string;
