@@ -199,7 +199,7 @@ export const initiatives = {
           "https://only.one/act/antarctica",
           "https://www.virgin.com/virgin-unite/latest/securing-the-largest-act-of-ocean-protection-in-history",
         ],
-        logo: "ocean_unite.png",
+        logo: "virgin_unite.svg",
       },
       {
         id: "013",
