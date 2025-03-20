@@ -1,13 +1,25 @@
 'use client';
 import { useState } from 'react';
+import { FaTrophy } from 'react-icons/fa'; // Import the trophy icon
 import MissionItem from './MissionItem';
 import { missions } from '../../../../lib/missons';
+import Modal from '@/components/common/Modal';
+import Image from 'next/image';
 
 export default function MissionsPage() {
   const [selectedTab, setSelectedTab] = useState('daily');
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
 
   const handleTabChange = (tab: string) => {
     setSelectedTab(tab);
+  };
+
+  const openLeaderboard = () => {
+    setIsModalOpen(true); // Open the modal when the leaderboard icon is clicked
+  };
+
+  const closeLeaderboard = () => {
+    setIsModalOpen(false); // Close the modal
   };
 
   return (
@@ -55,6 +67,21 @@ export default function MissionsPage() {
             <MissionItem key={mission.missionId} mission={mission} />
           ))}
       </div>
+
+      {/* Fixed Leaderboard Icon */}
+      <div className="fixed bottom-24 right-5 z-50">
+        <button
+          onClick={openLeaderboard}
+          className="text-4xl p-3 bg-highlight rounded-full text-white transition duration-300 hover:bg-mainBg shadow-lg"
+        >
+          <FaTrophy />
+        </button>
+      </div>
+
+      {/* Modal for Leaderboard */}
+      <Modal isOpen={isModalOpen} onClose={closeLeaderboard}>
+        <Image src="/images/leaderboard.png" width={800} height={600} alt='Leaderboard' />
+      </Modal>
     </div>
   );
 }
