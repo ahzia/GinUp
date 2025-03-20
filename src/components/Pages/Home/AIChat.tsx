@@ -1,5 +1,5 @@
 import { MdClose } from "react-icons/md";
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 
 interface AIChatProps {
     aiChatOpen: boolean;
@@ -9,8 +9,26 @@ interface AIChatProps {
 }
 
 export default function AIChat({ aiChatOpen, setAiChatOpen, aiChatVideoId, videosData }: AIChatProps) {
+    const generateSessionId = (videoId: string) => {
+        return `session-${videoId}`;
+    };
+
+    useEffect(() => {
+        if (aiChatVideoId) {
+            // Check if there's already a session for this video, otherwise create a new one
+            let sessionId = sessionStorage.getItem(`df-session-${aiChatVideoId}`);
+            if (!sessionId) {
+                sessionId = generateSessionId(aiChatVideoId);
+                sessionStorage.setItem(`df-session-${aiChatVideoId}`, sessionId);
+            }
+            sessionStorage.setItem('df-messenger-sessionID', sessionId); // Set for AI agent
+        }
+    }, [aiChatVideoId]);
+
     const sendMessageToAgent = (message: string) => {
         const sessionId = sessionStorage.getItem('df-messenger-sessionID');
+        if (!sessionId) return;
+
         fetch(
             `https://dialogflow.cloud.google.com/v1/cx/integrations/messenger/webhook/projects/hey-buddy-425118/agents/565449f1-c5bd-40c2-8457-295ce6ae892d/sessions/${sessionId}`,
             {
@@ -65,9 +83,9 @@ export default function AIChat({ aiChatOpen, setAiChatOpen, aiChatVideoId, video
                 language-code="en"
                 max-query-length="-1"
                 allow-feedback="all"
+                session-id={generateSessionId(aiChatVideoId)}
             >
-                <df-messenger-chat chat-title="SmileUp AI">
-                </df-messenger-chat>
+                <df-messenger-chat chat-title="SmileUp AI"></df-messenger-chat>
             </df-messenger>
         </div>
     );

@@ -122,12 +122,12 @@ body {
 
   /* Background image with gradient overlay */
   background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    /* Slight dark overlay at the top */ rgba(26, 16, 52, 1)
-      /* Fade smoothly into main background color */
-  );
-  /* url("../../images/"); */
+      to bottom,
+      rgba(0, 0, 0, 0),
+      /* Slight dark overlay at the top */ rgb(23, 23, 23, 1)
+        /* Fade smoothly into main background color */
+    ),
+    url("../../public/images/Virgin_Logo.png");
   background-size: cover;
   background-position: center;
 }

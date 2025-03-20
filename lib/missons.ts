@@ -8,7 +8,7 @@ export const missions = {
           icon: "📺", // Updated to better represent watching a video
           name: "Watch Your First Video",
           description:
-            "Explore the GinUp video feed and watch your first impact video!",
+            "Explore the SmileUp video feed and watch your first impact video!",
           reward: 20,
           progress: "Not Started",
           deadline: "Today at 11:59 PM",
@@ -18,7 +18,7 @@ export const missions = {
           missionId: "002",
           icon: "👥", // Updated to better represent making new friends
           name: "Add 3 New Friends",
-          description: "Connect with 3 new members in the GinUp community.",
+          description: "Connect with 3 new members in the SmileUp community.",
           reward: 15,
           steps: 3,
           currentStep: 1,
@@ -58,7 +58,7 @@ export const missions = {
         {
           missionId: "005",
           icon: "🎁", // Updated to better represent redeeming a reward
-          name: "Redeem a Reward in GinUp Rewards",
+          name: "Redeem a Reward in SmileUp Rewards",
           description: "Use your Points to redeem a special reward.",
           reward: 30,
           progress: "Not Started",
@@ -69,7 +69,7 @@ export const missions = {
           missionId: "006",
           icon: "👥", // Matches with the daily mission for adding new friends
           name: "Make 5 New Friends",
-          description: "Connect with at least 5 new members on GinUp.",
+          description: "Connect with at least 5 new members on SmileUp.",
           reward: 50,
           steps: 5,
           currentStep: 3,
