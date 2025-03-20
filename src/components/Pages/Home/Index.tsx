@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-
+import GinUpVideoFeed from './VideoFeed';
 const HomePage: React.FC = () => {
-  return <div>Home Page</div>;
+  return <div><GinUpVideoFeed /></div>;
 };
 
 export default HomePage;
