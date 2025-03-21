@@ -10,12 +10,12 @@ const GinUpVideoFeed = () => {
   // State for video initiatives
   const [videos, setVideos] = useState<any[]>([]);
   const [videosLoaded, setVideosLoaded] = useState(false);
-  const [ginxToken, setGinxToken] = useState(2000);
+  const [smiles, setSmiles] = useState(2000);
   const [totalStars, setTotalStars] = useState(10000);
   const [aiChatOpen, setAiChatOpen] = useState(false);
   const [aiChatVideoId, setAiChatVideoId] = useState<string | null>(null);
 
-  // State for modal
+  // State for company details modal (logo click)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedInitiative, setSelectedInitiative] = useState<any>(null);
 
@@ -43,8 +43,7 @@ const GinUpVideoFeed = () => {
       prevVideos.map((video) => {
         if (video.id === id) {
           const newLikedStatus = !video.liked;
-          // Update tokens and stars (adjust logic as needed)
-          setGinxToken((prev) => prev + (newLikedStatus ? -1 : 1));
+          setSmiles((prev) => prev + (newLikedStatus ? -1 : 1));
           setTotalStars((prev) => prev + (newLikedStatus ? 200 : -200));
           return { ...video, liked: newLikedStatus };
         }
@@ -64,13 +63,19 @@ const GinUpVideoFeed = () => {
     );
   };
 
-  // Callback when the logo is clicked
+  // Callback when the logo is clicked (for company details)
   const handleLogoClick = (initiativeData: any) => {
     setSelectedInitiative(initiativeData);
     setIsModalOpen(true);
   };
 
-  // Memoize partitioned video lists to prevent re-computation on each render
+  // Callback when the AI chat (Genie) button is clicked in Sidebar (via VideoCard)
+  const handleChatClick = (videoId: string) => {
+    setAiChatVideoId(videoId);
+    setAiChatOpen(true);
+  };
+
+  // Memoize partitioned lists to avoid re-computation
   const videoInitiatives = useMemo(() => videos.filter((v) => v.videoURL), [videos]);
   const slideshowInitiatives = useMemo(() => videos.filter((v) => !v.videoURL), [videos]);
 
@@ -79,67 +84,76 @@ const GinUpVideoFeed = () => {
   }
 
   return (
-    <div className="bg-black h-[calc(100vh-60px)] relative">
+    <>
+      <div className="bg-black h-[calc(100vh-60px)] relative">
+        <ScoreBoard smiles={smiles} totalStars={totalStars} />
+        {/* Render initiatives with video first */}
+        {videoInitiatives.map((video, index) => (
+          <VideoCard
+            key={video.id}
+            index={index}
+            author={video.author}
+            videoURL={video.videoURL}
+            authorImg={null} // Optionally a default image
+            lastVideoIndex={videos.length - 1}
+            handleLike={handleLike}
+            handleSave={handleSave}
+            videoId={video.id}
+            liked={video.liked}
+            saved={video.saved}
+            aiChatOpen={aiChatOpen}
+            setAiChatOpen={setAiChatOpen}
+            setAiChatVideoId={setAiChatVideoId}
+            logo={`/images/${video.logo}`}
+            title={video.title}
+            description={video.description}
+            challenge={video.challenge}
+            onLogoClick={handleLogoClick}
+            callToAction={video.callToAction}
+            links={video.links}
+            onChatClick={handleChatClick}
+          />
+        ))}
+        {/* Then render initiatives without video (slideshow) */}
+        {slideshowInitiatives.map((video, index) => (
+          <VideoCard
+            key={video.id}
+            index={videoInitiatives.length + index}
+            author={video.author}
+            videoURL={video.videoURL} // will be null so SlideShowCard renders
+            authorImg={null}
+            lastVideoIndex={videos.length - 1}
+            handleLike={handleLike}
+            handleSave={handleSave}
+            videoId={video.id}
+            liked={video.liked}
+            saved={video.saved}
+            aiChatOpen={aiChatOpen}
+            setAiChatOpen={setAiChatOpen}
+            setAiChatVideoId={setAiChatVideoId}
+            logo={`/images/${video.logo}`}
+            title={video.title}
+            description={video.description}
+            challenge={video.challenge}
+            onLogoClick={handleLogoClick}
+            callToAction={video.callToAction}
+            links={video.links}
+            onChatClick={handleChatClick}
+          />
+        ))}
+      </div>
 
+      {/* Global AI Chat Modal */}
       <Modal isOpen={aiChatOpen} onClose={() => setAiChatOpen(false)} className="w-full max-w-2xl h-auto">
-        <AIChat aiChatOpen={aiChatOpen} setAiChatOpen={setAiChatOpen} aiChatVideoId={aiChatVideoId} videosData={videos} />
+        <AIChat
+          aiChatOpen={aiChatOpen}
+          setAiChatOpen={setAiChatOpen}
+          aiChatVideoId={aiChatVideoId}
+          videosData={videos}
+        />
       </Modal>
 
-      <ScoreBoard ginxToken={ginxToken} totalStars={totalStars} />
-      {/* Render initiatives with video first */}
-      {videoInitiatives.map((video, index) => (
-        <VideoCard
-          key={video.id}
-          index={index}
-          author={video.author}
-          videoURL={video.videoURL}
-          authorImg={null} // Optionally replace with a default image
-          lastVideoIndex={videos.length - 1}
-          handleLike={handleLike}
-          handleSave={handleSave}
-          videoId={video.id}
-          liked={video.liked}
-          saved={video.saved}
-          aiChatOpen={aiChatOpen}
-          setAiChatOpen={setAiChatOpen}
-          setAiChatVideoId={setAiChatVideoId}
-          logo={`/images/${video.logo}`}
-          title={video.title}
-          description={video.description}
-          challenge={video.challenge}
-          onLogoClick={handleLogoClick}
-          callToAction={video.callToAction}
-          links={video.links}
-        />
-      ))}
-      {/* Then render initiatives without video (which will show a slideshow) */}
-      {slideshowInitiatives.map((video, index) => (
-        <VideoCard
-          key={video.id}
-          index={videoInitiatives.length + index}
-          author={video.author}
-          videoURL={video.videoURL} // will be null so VideoCard renders a slideshow card
-          authorImg={null}
-          lastVideoIndex={videos.length - 1}
-          handleLike={handleLike}
-          handleSave={handleSave}
-          videoId={video.id}
-          liked={video.liked}
-          saved={video.saved}
-          aiChatOpen={aiChatOpen}
-          setAiChatOpen={setAiChatOpen}
-          setAiChatVideoId={setAiChatVideoId}
-          logo={`/images/${video.logo}`}
-          title={video.title}
-          description={video.description}
-          challenge={video.challenge}
-          onLogoClick={handleLogoClick}
-          callToAction={video.callToAction}
-          links={video.links}
-        />
-      ))}
-
-      {/* Render modal for company details */}
+      {/* Company Details Modal */}
       {selectedInitiative && (
         <CompanyDetailsModal
           isOpen={isModalOpen}
@@ -147,7 +161,7 @@ const GinUpVideoFeed = () => {
           initiative={selectedInitiative}
         />
       )}
-    </div>
+    </>
   );
 };
 

@@ -25,6 +25,7 @@ interface VideoCardProps {
   onLogoClick: (initiativeData: any) => void;
   callToAction?: string[];
   links?: string[];
+  onChatClick: (videoId: string) => void;
 }
 
 const VideoCard: React.FC<VideoCardProps> = React.memo(({
@@ -48,6 +49,7 @@ const VideoCard: React.FC<VideoCardProps> = React.memo(({
   onLogoClick,
   callToAction,
   links,
+  onChatClick,
 }) => {
   const video = useRef<HTMLVideoElement>(null);
   const isInViewport = useIsInViewport(video);
@@ -72,7 +74,7 @@ const VideoCard: React.FC<VideoCardProps> = React.memo(({
     }
   };
 
-  // Called when logo is clicked
+  // Called when logo is clicked for company details
   const handleLogoClickInternal = () => {
     onLogoClick({
       id: videoId,
@@ -84,6 +86,11 @@ const VideoCard: React.FC<VideoCardProps> = React.memo(({
       links,
       logo,
     });
+  };
+
+  // Called when AI chat (Genie) button is clicked from Sidebar
+  const handleChatClickInternal = () => {
+    onChatClick(videoId);
   };
 
   return (
@@ -98,6 +105,7 @@ const VideoCard: React.FC<VideoCardProps> = React.memo(({
           aiChatOpen={aiChatOpen}
           setAiChatOpen={setAiChatOpen}
           setAiChatVideoId={setAiChatVideoId}
+          onChatClick={handleChatClickInternal}  // Pass chat click handler to Sidebar
         />
       )}
       {videoURL ? (
@@ -121,7 +129,7 @@ const VideoCard: React.FC<VideoCardProps> = React.memo(({
           challenge={challenge}
         />
       )}
-      {/* Logo at the bottom center with click to open modal */}
+      {/* Logo at the bottom center with click to open company details modal */}
       {logo && (
         <div
           className="absolute bottom-6 left-1/2 transform -translate-x-1/2 p-2 cursor-pointer drop-shadow-lg"
