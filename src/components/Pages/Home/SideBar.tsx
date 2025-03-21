@@ -1,6 +1,18 @@
 import { FaRobot, FaShare, FaBookmark } from "react-icons/fa";
 import { MdEmojiEmotions } from "react-icons/md";
 
+interface SidebarProps {
+  aiChatOpen: boolean;
+  setAiChatOpen: (open: boolean) => void;
+  videoId: string;
+  handleLike: (id: string) => void;
+  liked: boolean;
+  saved: boolean;
+  handleSave: (id: string) => void;
+  setAiChatVideoId: (id: string) => void;
+  onChatClick: () => void;
+}
+
 export default function Sidebar({
   aiChatOpen,
   setAiChatOpen,
@@ -10,20 +22,12 @@ export default function Sidebar({
   saved,
   handleSave,
   setAiChatVideoId,
-}: {
-  aiChatOpen: boolean;
-  setAiChatOpen: (open: boolean) => void;
-  videoId: string;
-  handleLike: (id: string) => void;
-  liked: boolean;
-  saved: boolean;
-  handleSave: (id: string) => void;
-  setAiChatVideoId: (id: string) => void;
-}) {
+  onChatClick,
+}: SidebarProps) {
   const handleAiChat = () => {
-    // Set chat context with videoId and toggle AI chat panel
+    // Set chat context with videoId and trigger the chat modal via onChatClick
     setAiChatVideoId(videoId);
-    setAiChatOpen(!aiChatOpen);
+    onChatClick();
   };
 
   return (
